@@ -23,7 +23,7 @@ while True:
 while True:
     try:    
         outputVehFile = input('Enter the name of the file to output to ==> ')
-        openOutVehFile = open(outputVehFile, 'a')
+        openOutVehFile = open(outputVehFile, 'w')
         break
     except IOError:
         print('There is an IOError', outputVehFile)
@@ -34,7 +34,7 @@ for line in openInVehFile:
     try:
         if mpg <= int(mpgcolumn):
             print(f'{lineParts[0]:<5}{lineParts[1]:<20}{lineParts[2]:<45}{mpgcolumn:>10}', file = openOutVehFile)
-    except ValueError:
+    except:
         print(f'Could not convert value', lineParts[-3], 'for vehicle', lineParts[0], lineParts[1], lineParts[2])
 
 openInVehFile.close()
